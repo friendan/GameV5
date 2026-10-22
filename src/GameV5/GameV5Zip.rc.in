@@ -1,0 +1,3 @@
+#include "resource.h"
+
+IDR_GAMEV5_SKIN ZIPRES "@GAMEV5_SKIN_ZIP_RC_PATH@"

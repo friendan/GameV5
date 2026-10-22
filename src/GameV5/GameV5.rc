@@ -1,0 +1,37 @@
+#include "resource.h"
+#include "AppVersion.h"
+
+IDI_GAMEV5 ICON "App.ico"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION GAMEV5_VERSION_MAJOR,GAMEV5_VERSION_MINOR,GAMEV5_VERSION_PATCH,GAMEV5_VERSION_BUILD
+ PRODUCTVERSION GAMEV5_VERSION_MAJOR,GAMEV5_VERSION_MINOR,GAMEV5_VERSION_PATCH,GAMEV5_VERSION_BUILD
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "GameV5"
+            VALUE "FileDescription", "GameV5 - Game Server Ops"
+            VALUE "FileVersion", GAMEV5_VERSION_STR_A
+            VALUE "InternalName", "GameV5"
+            VALUE "LegalCopyright", "Copyright (C) GameV5"
+            VALUE "OriginalFilename", "GameV5.exe"
+            VALUE "ProductName", "GameV5"
+            VALUE "ProductVersion", GAMEV5_VERSION_STR_A
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END

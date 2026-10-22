@@ -1,0 +1,33 @@
+# 本仓库文本文件统一检出/提交为 Windows CRLF，避免 PC/Unix 换行反复抖动
+* text=auto eol=crlf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.md text eol=crlf
+*.cpp text eol=crlf
+*.h text eol=crlf
+*.c text eol=crlf
+*.hpp text eol=crlf
+*.html text eol=crlf
+*.htm text eol=crlf
+*.css text eol=crlf
+*.js text eol=crlf
+*.json text eol=crlf
+*.toml text eol=crlf
+*.cmake text eol=crlf
+*.txt text eol=crlf
+*.rc text eol=crlf
+*.editorconfig text eol=crlf
+*.gitattributes text eol=crlf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.dll binary
+*.exe binary
+*.lib binary
+*.pdb binary
+*.zip binary

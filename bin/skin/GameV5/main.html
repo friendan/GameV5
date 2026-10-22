@@ -1,0 +1,85 @@
+<html theme="chrome" size="1280,800" caption="0,0,0,40" min-size="960,600" size-box="4,4,6,6">
+  <VBox name="root" window-resize="all">
+    <!-- 上：标题栏 -->
+    <TitleBar name="titlebar" title="" height="40"
+        show-min="true" show-max="true" show-close="true" close-to-tray="true" action="title">
+      <Button name="btn_nav_toggle" kind="none" lucide="menu" width="36" height="40"
+          tooltip="隐藏功能菜单" />
+      <Label name="titlebar_app" text="GameV5" font-size="13" mouse="false"
+          color="var(--color-titlebar-text)" />
+      <Spacer />
+      <ThemeSwitcher name="themeSwitch" width="36" height="40"
+          tooltip="选择主题" margin="0,8,0,0" />
+    </TitleBar>
+
+    <!-- 中：左导航 + 右功能区 -->
+    <HBox name="content" flexible="1" padding="8,8,8,8" gap="8">
+      <VBox name="nav_panel" width="200" theme="panel" border-radius="8"
+          padding="10,10,10,10" gap="4">
+        <Label text="功能导航" font-size="14" font-weight="bold" height="28"
+            color="var(--color-text)" />
+        <Option name="nav_start" group="main_nav" text="服务器" lucide="play" icon-size="16"
+            height="40" kind="none" selected="true" text-align="left" padding="0,12,0,12"
+            border-radius="6"
+            color="var(--color-text)" color-hover="var(--color-primary)" color-selected="var(--color-primary)"
+            background-color-hover="var(--color-bg-hover-medium)"
+            background-color-selected="var(--color-bg-hover)" />
+        <Option name="nav_export" group="main_nav" text="导号" lucide="download" icon-size="16"
+            height="40" kind="none" text-align="left" padding="0,12,0,12"
+            border-radius="6"
+            color="var(--color-text)" color-hover="var(--color-primary)" color-selected="var(--color-primary)"
+            background-color-hover="var(--color-bg-hover-medium)"
+            background-color-selected="var(--color-bg-hover)" />
+        <Option name="nav_export_srv" group="main_nav" text="导服" lucide="database" icon-size="16"
+            height="40" kind="none" text-align="left" padding="0,12,0,12"
+            border-radius="6"
+            color="var(--color-text)" color-hover="var(--color-primary)" color-selected="var(--color-primary)"
+            background-color-hover="var(--color-bg-hover-medium)"
+            background-color-selected="var(--color-bg-hover)" />
+        <Option name="nav_log" group="main_nav" text="日志" lucide="scroll-text" icon-size="16"
+            height="40" kind="none" text-align="left" padding="0,12,0,12"
+            border-radius="6"
+            color="var(--color-text)" color-hover="var(--color-primary)" color-selected="var(--color-primary)"
+            background-color-hover="var(--color-bg-hover-medium)"
+            background-color-selected="var(--color-bg-hover)" />
+        <Spacer />
+      </VBox>
+
+      <TabLayout name="pages" selected-id="0" flexible="1">
+        <VBox name="page_start" theme="panel" border-radius="8" padding="20,20,20,20" gap="8">
+          <Label theme="secondary" text="把配置文件夹拖到这里。只读取该目录下的文本配置，不进入子文件夹。" height="24" />
+          <Accordion name="server_groups" mode="multiple" header-height="32" flexible="1" overflow-y="auto" gap="8" />
+        </VBox>
+        <VBox name="page_export" theme="panel" border-radius="8" padding="20,20,20,20" gap="8">
+          <Button name="btn_pick_export_server" text="选择服务器" width="120" height="28" />
+          <Label name="export_server_id" font-size="16" font-weight="bold" height="28" color="var(--color-primary)" text="未选择服务器" />
+          <Button name="btn_pick_actor_sql" text="选择SQL文件" width="140" height="28" />
+          <Label name="actor_sql_file" font-size="16" height="28" color="var(--color-text)" text="未选择 SQL 文件" />
+          <Button name="btn_import_actor" text="开始导号" width="120" height="28" />
+          <Label theme="secondary" text="把玩家 SQL 拖到此页，或点击选择 SQL 文件。只导入 actors 和 actorvariable。" height="24" />
+        </VBox>
+        <VBox name="page_export_srv" theme="panel" border-radius="8" padding="20,20,20,20" gap="8">
+          <Button name="btn_pick_export_srv" text="选择服务器" width="120" height="28" />
+          <Label name="export_srv_id" font-size="16" font-weight="bold" height="28" color="var(--color-primary)" text="未选择服务器" />
+          <Button name="btn_pick_srv_sql" text="选择备份文件" width="140" height="28" />
+          <Label name="srv_sql_file" font-size="16" height="28" color="var(--color-text)" text="未选择备份文件" />
+          <Button name="btn_import_server" text="开始导服" width="120" height="28" />
+          <Label theme="secondary" text="把数据库备份 .sql 拖到此页。导入会清空目标库中的表。" height="24" />
+        </VBox>
+        <VBox name="page_log" theme="panel" border-radius="8" padding="20,20,20,20" gap="8">
+          <Button name="btn_clear_log" text="清空日志" width="100" height="28" />
+          <Label theme="secondary" text="每条状态单独一行，可拖动滚动条查看。" height="24" />
+          <VirtualList name="log_view" flexible="1" overflow-y="auto" item-height="22"
+              item-font-size="12" item-color="var(--color-text)" item-padding="0,4,0,4" />
+        </VBox>
+      </TabLayout>
+    </HBox>
+
+    <Control name="status_sep" height="1" background-color="var(--color-border)" />
+
+    <!-- 下：状态栏 -->
+    <HBox name="statusbar" height="28" padding="0,12,0,12" align-items="vcenter">
+      <Label name="status_message" theme="secondary" text="当前：服务器" />
+    </HBox>
+  </VBox>
+</html>
